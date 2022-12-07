@@ -1,4 +1,4 @@
-module.exports = { calcularTabuada, pontosDeOnibus }
+module.exports = { calcularTabuada, pontosDeOnibus, definirVencedor}
 
 // Ex 1:
 
@@ -33,4 +33,25 @@ function pontosDeOnibus(array) {
     }
 }
 
-console.log(pontosDeOnibus(array))
+// Ex 3: 
+
+// Array alfabeto foi feito para auxilio
+
+const alfabeto = ['',"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+let bingo = [2, 9, 14, 7, 1, 1, 1, 1, 1, 1]
+
+function definirVencedor(array){
+    let B = array.some((x) => x === 2)
+    let I = array.some((x) => x === 9)
+    let N = array.some((x) => x === 14)
+    let G = array.some((x) => x === 7)
+    let O = array.some((x) => x === 15)
+
+    if(B === false || I === false || N === false || G === false || O === false){
+        return "PERDEU"
+    }else{
+        return "GANHOU"
+    }
+}
+
+console.log(definirVencedor(bingo))
