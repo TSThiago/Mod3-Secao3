@@ -20,6 +20,15 @@ test('pontos de onibus, erro porque a quantidade de pessoas dentro do onibus fic
     expect(index.pontosDeOnibus([[10, 0], [3, 5], [5, 20]])).toBe(false)
 })
 
+test('pontos de onibus, erro porque um valor de pessoas que entraram não é inteiro', () =>{
+    expect(index.pontosDeOnibus([[10, 0], [3, 5], [5.3, 8]])).toBe(false)
+})
+
+test('pontos de onibus, erro porque um valor de pessoas que sairam não é inteiro', () =>{
+    expect(index.pontosDeOnibus([[10, 0], [3, 5], [5, 8.3]])).toBe(false)
+})
+
+
 // Ex 3: 
 
 test('bingo, se tiver 2, 9, 14, 7 e 15 no array parametro, retornará "GANHOU"', () => {

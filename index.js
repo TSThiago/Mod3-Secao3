@@ -20,18 +20,25 @@ function calcularTabuada(numero) {
 
 // Ex 2:
 
-let array = [[10, 0], [3, 5], [5, 0]]
+let array = [[10, 0], [3, 5], [5, 8]]
 
 function pontosDeOnibus(array) {
     let pessoasNoBusão = 0
-    array.forEach(x => { pessoasNoBusão = pessoasNoBusão + x[0] - x[1] 
+    let inteiro = true
+    array.forEach(x => { 
+        pessoasNoBusão = pessoasNoBusão + x[0] - x[1]
+        if(!Number.isInteger(x[0])|| !Number.isInteger(x[1])){
+            inteiro = false
+        } 
     })
-    if (pessoasNoBusão < 0){
+    if (pessoasNoBusão < 0 || inteiro === false){
         return false
     } else {
         return pessoasNoBusão
     }
 }
+
+console.log(pontosDeOnibus(array))
 
 // Ex 3: 
 
@@ -53,5 +60,3 @@ function definirVencedor(array){
         return "GANHOU"
     }
 }
-
-console.log(definirVencedor(bingo))
