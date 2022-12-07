@@ -1,4 +1,4 @@
-module.exports = {calcularTabuada}
+module.exports = { calcularTabuada, pontosDeOnibus }
 
 // Ex 1:
 
@@ -17,3 +17,20 @@ function calcularTabuada(numero) {
         }
     }
 }
+
+// Ex 2:
+
+let array = [[10, 0], [3, 5], [5, 0]]
+
+function pontosDeOnibus(array) {
+    let pessoasNoBusão = 0
+    array.forEach(x => { pessoasNoBusão = pessoasNoBusão + x[0] - x[1] 
+    })
+    if (pessoasNoBusão < 0){
+        return false
+    } else {
+        return pessoasNoBusão
+    }
+}
+
+console.log(pontosDeOnibus(array))

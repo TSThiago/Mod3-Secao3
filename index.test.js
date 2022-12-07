@@ -9,3 +9,13 @@ test('calcular tabuada, preencher os arrays com as tabuadas do 5, 6 e 7', () =>{
 test('calcular tabuada, erro porque parametro não é um número', () => {
     expect(index.calcularTabuada("asd")).toBe(false);
 })
+
+// Ex 2:
+
+test('pontos de onibus, se entra 10 pessoas, depois entra 3 e sai 5, e depois entra 5 e sai 8, ficaram 5 pessoas no onibus', () =>{
+    expect(index.pontosDeOnibus([[10, 0], [3, 5], [5, 8]])).toBe(5)
+})
+
+test('pontos de onibus, erro porque a quantidade de pessoas dentro do onibus ficou negativo', () =>{
+    expect(index.pontosDeOnibus([[10, 0], [3, 5], [5, 20]])).toBe(false)
+})
