@@ -6,9 +6,9 @@ let color = document.getElementById('color')
 let automatic = document.getElementById('automatic')
 let arrayCars = []
 
-
 createCars()
 recoverValues()
+console.log(searchByBrand(arrayCars, 'fiat'))
 
 function createCars(e){
     submit.addEventListener('click', (e) => {
@@ -21,8 +21,7 @@ function createCars(e){
         }
         if(localStorage.length != 0){
             let newCar = car
-            let localArray = window.localStorage.getItem("Cars")
-            arrayCars = JSON.parse(localArray)
+            arrayCars = JSON.parse(window.localStorage.getItem("Cars"))
             arrayCars.push(newCar)
             window.localStorage.setItem('Cars', JSON.stringify(arrayCars))
         }else{
@@ -44,3 +43,8 @@ function recoverValues(e){
     console.log(car)
 }
 
+function searchByBrand(array, brand){
+    array = JSON.parse(window.localStorage.getItem("Cars"))
+    brandCars = array.filter(x => x.brand === brand)
+    return brandCars
+}
