@@ -5,11 +5,13 @@ let value = document.getElementById('value')
 let color = document.getElementById('color')
 let automatic = document.getElementById('automatic')
 let arrayCars = []
+let properties = ['brand', 'model']
 
 createCars()
 recoverValues()
 console.log(searchByBrand(arrayCars, 'fiat'))
 console.log(searchBrands(arrayCars))
+console.log(showProperties(arrayCars, properties))
 
 function createCars(e) {
     submit.addEventListener('click', (e) => {
@@ -53,7 +55,6 @@ function searchByBrand(array, brand) {
 function searchBrands(array) {
     let brands = []
     array = JSON.parse(window.localStorage.getItem("Cars"))
-    brands[0] = array[0].brand
     array.forEach(x => {
         let counter = 0
         brands.forEach(y => {
@@ -61,9 +62,22 @@ function searchBrands(array) {
                 counter++
             }
         });
-        if(counter === 0){
+        if (counter === 0) {
             brands.push(x.brand)
         }
     })
     return brands
+}
+
+function showProperties(array, properties) {
+    let arrayCars = []
+    array = JSON.parse(window.localStorage.getItem("Cars"))
+    arrayCars = array.map(x => {
+        let car = {}
+        properties.forEach(y => {
+            car[y] = x[y]
+        })
+        return car
+    })
+    return arrayCars
 }
